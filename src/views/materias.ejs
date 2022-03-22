@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Notas</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+</head>
+<body>
+    <br><br>
+    <nav>
+        <a href="/" class="navbar-brand">Estudiantes</a>
+        <a href="/materia" class="navbar-brand">Materias</a>        
+        <a href="/curso" class="navbar-brand">Cursos</a>
+    </nav>
+
+    <div class="container">
+        <br>
+        <H1>MODULO MATERIAS</H1>
+        <div class="row mt-5 justify-content-between">
+            <div class="col-md-8 align-self-center">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>DESCRIPCION</th>
+                        <th>ACTIONS</th>
+                    </thead>
+                    <tbody>
+                        <% if(data){ %>
+                            <% for (var i = 0; i< data.length; i++) {%>
+                            <tr>
+                                <td><%= data[i].id  %></td>
+                                <td><%= data[i].nombre  %></td>
+                                <td><%= data[i].descripcion  %></td>
+                                <td>
+                                    <a href="/materia/delete/<%= data[i].id%>" class="btn btn-danger">Eliminar</a>
+                                    <a href="/materia/update/<%= data[i].id%>" class="btn btn-info">Editar</a>
+                                </td>
+                            </tr>
+                            <% } %>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4 align-self-center">
+                <div class="card">
+                    <div class="card-body align-self-center">
+                        <form action="/materia/add" method="post">
+                            <div class="form-group">
+                                <input type="text" name="nombre" placeholder="nombre" class="form=control">
+                            </div><br>
+                            <div class="form-group">
+                                <input type="text" name="descripcion" placeholder="descripcion" class="form=control">
+                            </div><br>
+                            <button type="submit" class="btn btn-primary">
+                                Guardar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

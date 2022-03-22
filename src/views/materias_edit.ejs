@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD Notas</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>EDITAR UNA MATERIA</h1>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/materia/update/<%= data.id %>" method="post">
+                            <div class="form-group">
+                                <input type="text" name="nombre" value="<%= data.nombre %>" class="form=control">
+                            </div><br>
+                            <div class="form-group">
+                                <input type="text" name="descripcion" value="<%= data.descripcion %>" class="form=control">
+                            </div><br>
+                            <button type="submit" class="btn btn-primary">
+                                Editar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+</body>
+</html>
